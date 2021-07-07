@@ -6,10 +6,8 @@ namespace Sort
 
     class Program
     {
-        public static void Sort<T, CollectionType>(IList<T> collection, int start, int end)
-            where T: IComparable<T>
-            where CollectionType : IList<T>
-            
+        public static void Sort<T>(IList<T> collection, int start, int end)
+            where T : IComparable<T>
         {
             if (start < 0 || start >= end || end > collection.Count)
             {
@@ -20,13 +18,13 @@ namespace Sort
                 int indexMin = start;
                 for (int i = start; i < end; ++i)
                 {
-                    
+
                     if (collection[i].CompareTo(collection[indexMin]) < 0)
                     {
                         indexMin = i;
                     }
                 }
-                
+
                 if (indexMin != start)
                 {
                     T temp = collection[start];
@@ -36,17 +34,15 @@ namespace Sort
             }
         }
 
-        public static void Sort<T, CollectionType>(IList<T> collection, int start)
+        public static void Sort<T>(IList<T> collection, int start)
             where T : IComparable<T>
-            where CollectionType : IList<T>
         {
-            Sort<T, CollectionType>(collection, start, collection.Count);
+            Sort<T>(collection, start, collection.Count);
         }
-        public static void Sort<T, CollectionType>(IList<T> collection)
+        public static void Sort<T>(IList<T> collection)
             where T : IComparable<T>
-            where CollectionType : IList<T>
         {
-            Sort<T, CollectionType>(collection, 0, collection.Count);
+            Sort<T>(collection, 0, collection.Count);
         }
 
 
@@ -59,18 +55,18 @@ namespace Sort
             {
                 Console.WriteLine(nodeValue);
             }
-            
+
         }
         static void Main(string[] args)
         {
 
 
             int[] mas = { 4, 3, 2, 2 };
-            Sort<int, int[]>(mas, 1, 3);
+            Sort<int>(mas, 1, 3);
             Print(mas);
-            Sort<int, int[]>(mas, 1);
+            Sort<int>(mas, 1);
             Print(mas);
-            Sort<int, int[]>(mas);
+            Sort<int>(mas);
             Print(mas);
 
         }
