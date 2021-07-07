@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace MyCollections.Generic
+using MyCollections.Generic;
+namespace TestMyCollections.Genric
 {
 
     class Program
@@ -29,7 +27,7 @@ namespace MyCollections.Generic
             en.Reset();
             try
             {
-                list.Remove(en as IEnumerator<int>);
+                list.Remove(en as System.Collections.Generic.IEnumerator<int>);
             }
             catch
             {
@@ -39,7 +37,7 @@ namespace MyCollections.Generic
             en.Reset();
             en.MoveNext();
             en.MoveNext();
-            list.Remove(en as IEnumerator<int>);
+            list.Remove(en as System.Collections.Generic.IEnumerator<int>);
             Console.WriteLine(list.Remove(2));
 
             foreach (int nodeValue in list)
@@ -47,10 +45,8 @@ namespace MyCollections.Generic
                 Console.WriteLine(nodeValue);
             }
             list.Clear();
-            foreach (int nodeValue in list)
-            {
-                Console.WriteLine(nodeValue);
-            }
+
         }
     }
 }
+
