@@ -23,7 +23,7 @@ namespace TestMyCollections.Genric
             {
                 Console.WriteLine(nodeValue);
             }
-
+            Console.WriteLine("Count: " + list.Count);
             en.Reset();
             try
             {
@@ -49,4 +49,3 @@ namespace TestMyCollections.Genric
         }
     }
 }
-
