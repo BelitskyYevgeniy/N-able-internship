@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HTML Document</title>
+    <style>
+        .block-item {
+            display: block;
+           
+        }
+
+            .block-item#video {
+                width: 400px;
+                height: 400px;
+                background: green;
+            }
+    </style>
+</head>
+<body>
+        <video class="block-item" id="video" autoplay></video>
+        <button class="block-item" id="start-video-button">start video</button>
+
+        <script>
+            let button = document.getElementById("start-video-button");
+            let video = document.getElementById('video');
+            if (!(button == null || video == null)) {
+                button.onclick = function () {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(stream => {
+                            video.srcObject = stream;
+                        })
+                }
+            }
+            else {
+                console.log("error!");
+            }
+        </script>
+</body>
+</html>
