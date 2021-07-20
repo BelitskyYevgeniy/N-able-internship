@@ -2,6 +2,9 @@
 # .Net 
 ## Task 1
 Create 2-3 class(es) with useful properties
+### Answer 
+- [First example](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/General(Vadim%20Vinnik)/Task%204/Syncronizer.cs)  
+- [Second example](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/General(Vadim%20Vinnik)/Task%202/List.cs)
 ## Task 2
 Write a program that uses structs
 ## Task 3
