@@ -33,7 +33,7 @@ namespace DZ
                     default: throw new ArgumentException();
                 }
             }
-            public static string ConvertToString<T>(T value)
+            public static string ConvertToString(object value)
             {
                 return value.ToString();
             }
