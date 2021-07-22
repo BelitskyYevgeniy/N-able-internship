@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 namespace DZ
 {
     class Program
@@ -55,10 +56,10 @@ namespace DZ
 
             public void ProcessBook<T>(StatisticFunc<T> func, ref T data)
             {
-                foreach(var grade in Grades)
+                foreach (var grade in Grades)
                 {
                     func(grade, ref data);
-                } 
+                }
             }
         }
 
@@ -76,7 +77,7 @@ namespace DZ
             }
             private static void CheckLowest(Grade grab, ref float data)
             {
-                if(grab.Value < data)
+                if (grab.Value < data)
                 {
                     data = grab.Value;
                 }
@@ -120,6 +121,37 @@ namespace DZ
                 return lowest;
             }
         }
+        public static class AdditionFunctionalityUsingLINQ
+        {
+            
+            
+            public static double Average(ElectronicBook book)
+            {
+                if (book == null)
+                {
+                    throw new NullReferenceException();
+                };
+                var sum = book.Grades.Sum(grade => grade.Value);
+                return sum / book.Grades.Count();
+            }
+
+            public static float TakeHighest(ElectronicBook book)
+            {
+                if (book == null)
+                {
+                    throw new NullReferenceException();
+                };
+                return book.Grades.Max(grade => grade.Value);
+            }
+            public static float TakeLowest(ElectronicBook book)
+            {
+                if (book == null)
+                {
+                    throw new NullReferenceException();
+                };
+                return book.Grades.Min(grade => grade.Value);
+            }
+        }
 
 
         static void Main(string[] args)
@@ -128,6 +160,10 @@ namespace DZ
             Console.WriteLine(AdditionFunctionality.Average(book));
             Console.WriteLine(AdditionFunctionality.TakeHighest(book));
             Console.WriteLine(AdditionFunctionality.TakeLowest(book));
+
+            Console.WriteLine(AdditionFunctionalityUsingLINQ.Average(book));
+            Console.WriteLine(AdditionFunctionalityUsingLINQ.TakeHighest(book));
+            Console.WriteLine(AdditionFunctionalityUsingLINQ.TakeLowest(book));
         }
     }
 }
