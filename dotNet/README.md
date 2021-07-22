@@ -16,3 +16,4 @@ Write 2 real world examples with delegates
 ![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%204.jpg)
 ## Task 5
 ![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%205.jpg)  
+P.S. Added the same functionality using Linq!  
