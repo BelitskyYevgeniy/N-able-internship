@@ -19,12 +19,12 @@ namespace DZ
         }
         public static void Main(string[] args)
         {
-            var numbers = new int[] { 1, 2, 3 };
+            var numbers = new int[] { 1, 2, 3, 4 };
             foreach (var number in LinqUsageExampleClass.TakeEvenNumbers(numbers))
             {
                 Console.WriteLine(number);
             }
-            var words = new string[] { "asdf", "Array", "24124" };
+            var words = new string[] { "asdf", "Array", "24124", "AsA" };
 
             foreach (var word in LinqUsageExampleClass.TakeWordsStartedFrom(words, 'A'))
             {
