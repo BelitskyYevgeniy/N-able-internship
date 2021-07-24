@@ -16,7 +16,13 @@ Write 2 real world examples with delegates
 ![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%204.jpg)
 ## Task 5
 ![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%205.jpg)  
-P.S. Added the same functionality using Linq!  
+P.S.  
+Added the same functionality using Linq!   
+Added Extensions for ElectronicBook
+     
 ## Task 6
 ![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%206.jpg)
 P.S. Task 6.3 contains in the [Task 5](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/Task%205/Program.cs)  
+## Task 7
+![](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/docs/Task%207.jpg)
+P.S. Task 7.4 contains in the [Task 5](https://github.com/BelitskyYevgeniy/N-able-internship/blob/main/dotNet/Task%205/Program.cs)  
