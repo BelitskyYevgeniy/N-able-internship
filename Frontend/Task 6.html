@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HTML Document</title>
+    <style>
+
+
+        input {
+            font-size: 20px;
+        }
+
+        .textbox {
+            width: 400px;
+            font-size: 20px;
+        }
+        
+
+        .game-map {
+            width: 100%;
+            height: 100%;
+
+        }
+        .card {
+            margin: 20px;
+            font-size: 16px;
+            line-height: 25px;
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+
+            display: inline-block;
+            align-items: center
+        }
+
+            .card.active {
+                -webkit-transform: rotateY( 180deg );
+                -moz-transform: rotateY( 180deg );
+                -o-transform: rotateY( 180deg );
+                transform: rotateY( 180deg );
+            }
+
+            .card .front,
+            .card .back {
+                display: block;
+                height: 100%;
+                width: 100%;
+                line-height: 60px;
+                align-items: center;
+                text-align: center;
+                font-size: 4em;
+                position: absolute;
+                backface-visibility: hidden;
+                box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+            }
+
+            .card .back {
+                background: orange;
+            }
+
+            .card .back {
+                background:green;
+                transform: rotateY( 180deg );
+            }
+            
+
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <input id="input-x" class="textbox" placeholder="Input count of cards by vertical" type="number" min="1"/>
+        <input id="input-y" class="textbox" placeholder="Input count of cards by horizontal" type="number" min="1"/>
+        <input id="input-confirm" type="button" value="start" onclick="startGame()"/>
+    </div>
+    <div style="visibility: hidden" class="game-map">
+        
+    </div>
+    
+    <script>
+        var defaultCardText = '?';
+        var activePosition = -1;
+        var activeCards = 0;
+        var activeCardValue = -1;
+
+        //function getCardValue(position) {
+        //    return parseInt(document.getElementById('pos-' + position).textContent);
+        //}
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        function setCardAsActive(position) {
+            let element = document.getElementById('flipcard-' + position);
+            console.log(element);
+
+            element.style.visibility = "collapse";
+            //element.removeEventListener('click', ClickLogic);
+        }
+        function flipCard(position) {
+            let element = document.getElementById('flipcard-' + position);
+            element.classList.toggle('active');
+        }
+        function ClickLogic(position, cardValue) {
+            flipCard(position);
+            setTimeout(() => {
+            if (activePosition == -1) {
+                activePosition = position;
+                activeCardValue = cardValue;
+            }
+            else {
+                if (activeCardValue == cardValue && position != activePosition) {
+                    setCardAsActive(activePosition);
+                    setCardAsActive(position);
+                    activeCards -= 2;
+
+                    console.log("active: " + activePosition + " - " + position);
+                }
+                else {
+
+                    flipCard(activePosition);
+                    flipCard(position);
+                }
+                
+                activePosition = -1;
+                activeCardValue = -1;
+            }
+            console.log("active pos: " + activePosition);
+            console.log("active val: " + activeCardValue);
+            console.log("active cards: " + activeCards);
+
+            if (!activeCards) {
+                alert("You won!");
+                }
+            }, 600);
+        }
+        function FillLists(list, initList, value) {
+            let pos = getRandomInt(list.length);
+            initList[list[pos]] = value;
+            list = list.splice(pos, 1);
+        }
+        function InitMap()
+        {
+            let list = [];
+            let initList = Array(activeCards);
+            
+            for (let i = 0; i < activeCards; ++i) {
+                list.push(i);
+            }
+            console.log(list);
+            let cardValue = 0;
+            while (cardValue = list.length) {
+                FillLists(list, initList, cardValue);
+                FillLists(list, initList, cardValue);
+                
+            }
+            console.log(initList);
+            let container = document.getElementsByClassName('game-map')[0]; 
+            let innerHTML = "";
+            for (let i = 0; i < initList.length; ++i) {
+                innerHTML += CreateCard(i, initList[i]);
+            }
+            container.innerHTML = innerHTML;
+            console.log(container);
+        }
+
+        function CreateCard(position, cardValue) {
+            return "<div id=\"flipcard-" + position + "\" class=\"card \" onclick=\"ClickLogic(" + position + ", " + cardValue + ")\">" +
+                        "<div id=\"click-pos-" + position + "\" class=\"front\"  >" + defaultCardText + "</div>" +
+                        "<div id=\"" + "pos-" + position + "\" class=\"back\">" + cardValue + "</div>" +
+                    "</div>";
+
+        }
+
+        function startGame() {
+            let inputX = document.getElementById('input-x');
+            let inputY = document.getElementById('input-y');
+            if (inputX == null || inputY == null) {
+                console.log('Game inner error: Can not found html elements!');
+                return;
+            }
+            let xSize = parseInt(inputX.value);
+            let ySize = parseInt(inputY.value);
+            if (isNaN(xSize) || isNaN(ySize)) {
+                console.log('Wrong data!');
+                return;
+            }
+            activeCards = xSize * ySize;
+            if ((activeCards) % 2) {
+                alert("Wrong input data: " + xSize + " * " + ySize + " is not even!");
+                return;
+            }
+            console.log('x size: ' + xSize);
+            console.log('y size: ' + ySize);
+
+            InitMap();
+            document.getElementsByClassName('game-map')[0].style.visibility = "visible";
+        }
+
+
+    </script>
+</body>
+</html>
