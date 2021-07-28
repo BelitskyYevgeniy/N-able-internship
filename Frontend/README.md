@@ -27,3 +27,36 @@
 
 ## Task 6
 Сделать игру "Найди пару"
+
+## Task 7
+### Отформатировать значение в зависимости от типа:
+
+String => "application/text;base64,{base64EncodedString}"  
+Number => "X.YZ" (float), "XXX" (integer)  
+Function => fn.toSource()  
+Array => "[a,b,c,d,...]"  
+Object => "[[key, value], [key2, value2], …, [keyN, valueN]]"  
+Date => "DD-MM-YYYY HH:ii:ss"    
+RegExp (/test/) => "/test/"    
+
+
+### Сделать валидацию и форматирование мобильных телефонов:
+
+['80296758990','+375296758990','+375(29)6758990','+375(29)675-89-90','(029)675-89-90','6758990']  
+
+// отформатированные номера:  
+8 (029) 678-89-90  
++375 (29) 678-89-90  
+(029) 678-89-90  
+678-89-90  
+
+
+### Формирователь строки на основе шаблона и параметров:
+
+"{0} {1}".format([firstName, lastName]) // .format(["Vadym", "Vinnyk"]) => "Vadym Vinnyk"  
+ 
+"{firstName} {lastName}".format({firstName: "Vadym", lastName: "Vinnyk"}) // "Vadym   Vinnyk";   
+
+// ограничение, при отсутствии значения для форматирования, формат должен оставаться неизменным, т.е.  
+"{length}".format([1]) === "{length}"  
+"{0} {1}".format(['test']) === "test {1}"  
