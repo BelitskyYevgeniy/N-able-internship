@@ -33,18 +33,11 @@
 
 String => "application/text;base64,{base64EncodedString}"  
 Number => "X.YZ" (float), "XXX" (integer)  
-
-## Task 8
-
-## Task 9
-### Спарсить страницу онлайнера
-Вывести все такие структуры {tittle, url, ing, description} новостных блоков
 Function => fn.toSource()  
 Array => "[a,b,c,d,...]"  
 Object => "[[key, value], [key2, value2], …, [keyN, valueN]]"  
 Date => "DD-MM-YYYY HH:ii:ss"    
 RegExp (/test/) => "/test/"    
-
 
 ### Сделать валидацию и форматирование мобильных телефонов:
 
@@ -66,3 +59,10 @@ RegExp (/test/) => "/test/"
 // ограничение, при отсутствии значения для форматирования, формат должен оставаться неизменным, т.е.  
 "{length}".format([1]) === "{length}"  
 "{0} {1}".format(['test']) === "test {1}"  
+
+## Task 8
+
+## Task 9
+### Спарсить страницу онлайнера
+Вывести все такие структуры {tittle, url, ing, description} новостных блоков
+
