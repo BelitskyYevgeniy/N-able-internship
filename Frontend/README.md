@@ -33,6 +33,12 @@
 
 String => "application/text;base64,{base64EncodedString}"  
 Number => "X.YZ" (float), "XXX" (integer)  
+
+## Task 8
+
+## Task 9
+### Спарсить страницу онлайнера
+Вывести все такие структуры {tittle, url, ing, description} новостных блоков
 Function => fn.toSource()  
 Array => "[a,b,c,d,...]"  
 Object => "[[key, value], [key2, value2], …, [keyN, valueN]]"  
