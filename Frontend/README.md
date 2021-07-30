@@ -64,5 +64,5 @@ RegExp (/test/) => "/test/"
 
 ## Task 9
 ### Спарсить страницу онлайнера
-Вывести все такие структуры {tittle, url, ing, description} новостных блоков
+Вывести все такие структуры {tittle, url, img, description} новостных блоков
 
